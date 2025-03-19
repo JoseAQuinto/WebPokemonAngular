@@ -1,0 +1,9 @@
+<section class="resultado-section">
+    <h2>Tu Resultado</h2>
+    <div *ngIf="resultado">
+      <img [src]="resultado.imageUrl" [alt]="resultado.pokemon">
+      <h3>{{ resultado.pokemon }}</h3>
+      <p>{{ resultado.descripcion }}</p>
+    </div>
+  </section>
+  

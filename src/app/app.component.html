@@ -1,41 +1,42 @@
+<!-- app.component.html -->
 <!-- Header -->
 <header class="header">
-        
-  <img class="logo" src="/assets/img/retro.png" alt="Retro Logo">
-  <div class="header-container">
-  <nav>
-      <ul class="nav-list">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="#">Perfil</a></li>
-          <li><a href="#">Pokémons</a></li>
-          <li><a href="#">Test Pokémon</a></li>
-          <li><a href="/tienda">Tienda</a></li>
+    <div class="header-container">
+      <a routerLink="/" class="logo">GamerDex</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a routerLink="/">Inicio</a></li>
+          <li><a routerLink="/perfil">Perfil</a></li>
+          <li><a routerLink="/pokedex">Pokedex</a></li>
+          <li><a routerLink="/preguntas">Test Pokémon</a></li>
+
+          <li><a routerLink="/tienda">Tienda</a></li>
           <!-- Mostrar solo si el usuario NO está logueado -->
-        <li *ngIf="!authService.estaAutenticado()"><a routerLink="/login">Login</a></li>
-        <li *ngIf="!authService.estaAutenticado()"><a routerLink="/registro">Registro</a></li>
-
-        <!-- Mostrar solo si el usuario está logueado -->
-        <li *ngIf="authService.estaAutenticado()">
+          <li *ngIf="!authService.estaAutenticado()"><a routerLink="/login">Login</a></li>
+          <li *ngIf="!authService.estaAutenticado()"><a routerLink="/registro">Registro</a></li>
+          <!-- Mostrar solo si el usuario está logueado -->
+          <li *ngIf="authService.estaAutenticado()">
             <button (click)="cerrarSesion()">Cerrar Sesión</button>
-        </li>
-
-      </ul>
-  </nav>
-</div>
-</header>
-
-<router-outlet></router-outlet>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-          <p class="footer-text">&copy; 2025 Pokémon Test. Todos los derechos reservados.</p>
-          <nav class="footer-nav">
-              <ul class="footer-nav-list">
-                  <li><a href="#">Aviso Legal</a></li>
-                  <li><a href="#">Política de Privacidad</a></li>
-                  <li><a href="#">Contacto</a></li>
-              </ul>
-          </nav>
-      </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Aquí se inyectan los componentes según la ruta -->
+  <router-outlet></router-outlet>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-text">&copy; 2025 Pokémon Test. Todos los derechos reservados.</p>
+      <nav class="footer-nav">
+        <ul class="footer-nav-list">
+          <li><a routerLink="/aviso-legal">Aviso Legal</a></li>
+          <li><a routerLink="/politica-privacidad">Política de Privacidad</a></li>
+          <li><a routerLink="/contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
   </footer>
+  

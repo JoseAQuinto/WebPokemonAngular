@@ -1,0 +1,67 @@
+<section class="main-section">
+  <h2 class="section-title">
+    Test Pokémon - Responde y descubre cuál eres
+  </h2>
+
+  <div class="question-container">
+    <form (ngSubmit)="submitTest()" #testForm="ngForm">
+      <!-- Paso 1 -->
+      <div class="step" [class.active]="currentStep === 0">
+        <p>1. ¿Qué prefieres hacer en tu tiempo libre?</p>
+        <label>
+          <input type="radio" name="pregunta1" value="aventura" [(ngModel)]="answers['pregunta1']" required>
+          Explorar nuevos lugares
+        </label><br>
+        <label>
+          <input type="radio" name="pregunta1" value="relax" [(ngModel)]="answers['pregunta1']" required>
+          Relajarme en casa
+        </label><br>
+        <label>
+          <input type="radio" name="pregunta1" value="social" [(ngModel)]="answers['pregunta1']" required>
+          Salir con amigos
+        </label>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="step" [class.active]="currentStep === 1">
+        <p>2. ¿Cómo te describes?</p>
+        <label>
+          <input type="radio" name="pregunta2" value="valiente" [(ngModel)]="answers['pregunta2']" required>
+          Valiente y decidido
+        </label><br>
+        <label>
+          <input type="radio" name="pregunta2" value="calmado" [(ngModel)]="answers['pregunta2']" required>
+          Calmado y reflexivo
+        </label><br>
+        <label>
+          <input type="radio" name="pregunta2" value="energetico" [(ngModel)]="answers['pregunta2']" required>
+          Lleno de energía
+        </label>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="step" [class.active]="currentStep === 2">
+        <p>3. ¿Qué clima prefieres?</p>
+        <label>
+          <input type="radio" name="pregunta3" value="sol" [(ngModel)]="answers['pregunta3']" required>
+          Soleado
+        </label><br>
+        <label>
+          <input type="radio" name="pregunta3" value="lluvia" [(ngModel)]="answers['pregunta3']" required>
+          Lluvioso
+        </label><br>
+        <label>
+          <input type="radio" name="pregunta3" value="nublado" [(ngModel)]="answers['pregunta3']" required>
+          Nublado
+        </label>
+      </div>
+
+      <!-- Botones de navegación -->
+      <div class="question-buttons">
+        <button type="button" (click)="previousStep()" *ngIf="currentStep > 0">Anterior</button>
+        <button type="button" (click)="nextStep()" *ngIf="currentStep < maxSteps - 1">Siguiente</button>
+        <button type="submit" *ngIf="currentStep === maxSteps - 1">Enviar</button>
+      </div>
+    </form>
+  </div>
+</section>

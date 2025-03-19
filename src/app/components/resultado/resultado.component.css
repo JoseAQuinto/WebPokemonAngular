@@ -1,0 +1,15 @@
+.resultado-section {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .resultado-section img {
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+  
+  .resultado-section h3 {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  

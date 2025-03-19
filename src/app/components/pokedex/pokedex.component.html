@@ -1,0 +1,21 @@
+<section class="main-section">
+  <h2 class="section-title">Pokédex - Los primeros 20 Pokémon</h2>
+
+  <!-- Input de búsqueda -->
+  <div class="search-container">
+    <input 
+      type="text" 
+      placeholder="Buscar Pokémon" 
+      [(ngModel)]="searchTerm">
+  </div>
+
+  <div class="pokedex-container">
+    <!-- Itera sobre la lista filtrada -->
+    <div *ngFor="let pokemon of filteredPokemonList" class="pokemon-card">
+      <img [src]="pokemon?.sprites?.front_default" [alt]="pokemon?.name">
+      <h3>{{ capitalize(pokemon.name) }}</h3>
+      <p>ID: {{ pokemon.id }}</p>
+      <p>Tipo: {{ getPokemonTypes(pokemon) }}</p>
+    </div>
+  </div>
+</section>
