@@ -1,0 +1,7 @@
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <input type="email" [(ngModel)]="email" placeholder="Correo electrónico">
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+    <button (click)="login()">Ingresar</button>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+</div>

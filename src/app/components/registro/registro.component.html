@@ -1,0 +1,7 @@
+<div class="registro-container">
+    <h2>Registro</h2>
+    <input type="email" [(ngModel)]="email" placeholder="Correo electrónico">
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+    <button (click)="registrar()">Registrarse</button>
+    <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>

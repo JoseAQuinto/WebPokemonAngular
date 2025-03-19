@@ -1,0 +1,144 @@
+.tienda-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.producto-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.producto-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.producto-card h3 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.producto-card p {
+    margin: 0.25rem 0;
+    font-weight: bold;
+}
+
+.producto-card button {
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.producto-card button:hover {
+    background-color: #2563eb;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+}
+
+.floating-cart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #facc15;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.cart-panel {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    padding: 1rem;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    z-index: 100;
+}
+
+.cart-panel h3 {
+    margin-bottom: 30px;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.vaciar-btn {
+    background: red;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    border: none;
+    width: 100%;
+}
+
+.floating-cart-btn {
+    width: 60px;
+    height: 60px;
+    background: #facc15;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.cart-icon {
+    font-size: 30px;
+    position: relative;
+}
+
+.cart-counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 14px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    pointer-events: none; /* Evita que interfiera con el click */
+}

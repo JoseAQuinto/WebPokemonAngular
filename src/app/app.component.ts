@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common'; // ✅ Importar CommonModule para *ngIf
+import { RouterModule } from '@angular/router'; // ✅ Importar RouterModule para router-outlet
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  imports: [CommonModule, RouterModule] // ✅ Agregar CommonModule y RouterModule
 })
 export class AppComponent {
-  title = 'WebPokemonAngular';
+  constructor(public authService: AuthService, private router: Router) {}
+
+  cerrarSesion() {
+    this.authService.logout();
+    this.router.navigate(['/']); // Redirige al inicio tras cerrar sesión
+  }
 }

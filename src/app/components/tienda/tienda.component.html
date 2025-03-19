@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Retro Pokémon</title>
+    <link rel="stylesheet" href="/assets/CSS/styles.css">
+    <link rel="stylesheet" href="/assets/CSS/stylestienda.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <section class="main-section">
+        <h2 class="section-title">Tienda Retro Pokémon</h2>
+        <div class="tienda-container">
+            <div *ngFor="let producto of productos" class="producto-card">
+                <img [src]="'/assets/' + producto.imagen" [alt]="producto.nombre">
+                <h3><a [routerLink]="['/producto', producto.id]">{{ producto.nombre }}</a></h3>
+                <p>{{ producto.precio }}€</p>
+                <p *ngIf="producto.descripcion">{{ producto.descripcion }}</p>
+                <button (click)="agregarAlCarrito(producto.id)">Añadir al carrito</button>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Botón flotante para abrir el carrito -->
+    <button class="floating-cart-btn" (click)="toggleCarrito()">🛒</button>
+    
+    <!-- Carrito lateral -->
+    <div class="cart-panel" id="cartPanel">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>Tu carrito</h3>
+            <button (click)="toggleCarrito()" style="background: none; border: none; font-size: 20px; cursor: pointer;">✖️</button>
+        </div>
+        <div *ngIf="carrito.length === 0">
+            <p>El carrito está vacío.</p>
+        </div>
+        <div *ngIf="carrito.length > 0">
+            <div *ngFor="let item of carrito" class="cart-product">
+                <span>{{ item.nombre }} x {{ item.cantidad }}</span>
+                <span>{{ item.precio }}€</span>
+            </div>
+            <button class="vaciar-btn" (click)="vaciarCarrito()">Vaciar Carrito</button>
+        </div>
+    </div>
